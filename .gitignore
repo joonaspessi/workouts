@@ -1,0 +1,11 @@
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+*.log
+
+# If you would like to keep node_modules in Git, comment this out. 
+node_modules
+
+# If you would like to keep built LESS / JSX files in Git, comment this out.
+public/build
