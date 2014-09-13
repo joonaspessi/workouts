@@ -1,39 +1,22 @@
 /** @jsx React.DOM */
 
-require.config({
-    baseUrl: '/',
-    paths: {
-        react: 'lib/react',
-        lodash: 'lib/lodash',
-        page: 'lib/page'
-    }
+var React = require('react'); 
+var page = require('page');
+var Blank = require('./Blank.jsx');
+
+page('/', function index() {
+    React.renderComponent(
+        <Blank />, 
+        document.body
+    );
 });
 
-define([
-    'page',
-    'react',
-    'build/Blank' // NOTE: All transformed JSX files live in build/ dir, not src/.
-], function(page, React, Blank) {
-    /**
-        Add whatever routes you need.
-
-        See Page.js readme for halp: http://visionmedia.github.io/page.js/
-    */
-    page('/', function index() {
-        React.renderComponent(
-            <Blank />, 
-            document.body
-        );
-    });
-
-    page('/example', function example() {
-        React.renderComponent(
-            <Blank text={"Hello from example route!"} isExample={true} />, 
-            document.body
-        );
-    });
-
-    page(); // Start router and serve the URL the user has in their address bar.
-    
+page('/example', function example() {
+    React.renderComponent(
+        <Blank text={"Hello from example route!"} isExample={true} />, 
+        document.body
+    );
 });
+
+page(); // Start router and serve the URL the user has in their address bar.
 

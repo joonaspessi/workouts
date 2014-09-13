@@ -1,15 +1,6 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        react: {
-            files: {
-                expand: true,
-                cwd: 'public/src/',
-                src: ['**/*.jsx'],
-                dest: 'public/build/',
-                ext: '.js'
-            }
-        },
         libsass: {
             development: {
                 src: 'public/src/main.scss',
@@ -17,21 +8,29 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            'react': {
+            'browserify': {
                 files: 'public/src/**/*.jsx',
-                tasks: ['react']
+                tasks: ['browserify']
             },
-            'less': {
-                files: 'public/src/main.less',
-                tasks: ['less']
+            'sass': {
+                files: 'public/src/**/*.scss',
+                tasks: ['libsass']
+            }
+        },
+        browserify: {
+            options: {
+                transform: [require('grunt-react').browserify],
+            },
+            client: {
+                src: ['public/src/**/*.jsx'],
+                dest: 'public/build/main.js'
             }
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-libsass');
-    grunt.loadNpmTasks('grunt-react');
+    grunt.loadNpmTasks('grunt-browserify');
 
     grunt.registerTask('default', ['react', 'libsass']);
 };
