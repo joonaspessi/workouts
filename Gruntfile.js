@@ -10,11 +10,10 @@ module.exports = function(grunt) {
                 ext: '.js'
             }
         },
-        less: {
+        libsass: {
             development: {
-                files: {
-                    'public/build/main.css': 'public/src/main.less'
-                }
+                src: 'public/src/main.scss',
+                dest: 'public/build/main.css'
             }
         },
         watch: {
@@ -27,10 +26,12 @@ module.exports = function(grunt) {
                 tasks: ['less']
             }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-libsass');
     grunt.loadNpmTasks('grunt-react');
 
+    grunt.registerTask('default', ['react', 'libsass']);
 };
