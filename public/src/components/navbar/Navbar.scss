@@ -3,12 +3,12 @@ $navbar-color: deepskyblue;
 .navbar {
 	list-style: none;
 	margin: 0;
-
 	background: $navbar-color;
 
 	display: flex;
 	-webkit-flex-flow: row wrap;
 	justify-content: flex-start;
+	z-index: 999;
 }
 
 .navbar a {
