@@ -3,17 +3,22 @@
 var React = require('react'); 
 var page = require('page');
 var Blank = require('./Blank.jsx');
+var Navbar = require('./components/navbar/Navbar.jsx');
+var Workouts = require('./components/workouts/workouts.jsx');
+var App = require('./components/app/App.jsx');
+
+
 
 page('/', function index() {
     React.renderComponent(
-        <Blank />, 
+        <App />,
         document.body
     );
 });
 
-page('/example', function example() {
+page('/summaries', function example() {
     React.renderComponent(
-        <Blank text={"Hello from example route!"} isExample={true} />, 
+        <Navbar />,
         document.body
     );
 });
