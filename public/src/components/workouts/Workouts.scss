@@ -17,7 +17,7 @@
 	cursor: pointer;
 	border: 5px solid rgba(255,255,255,0.5);
 	border-radius: 10px;
-
+	flex-grow: 1;
 }
 
 .workout h1 {
@@ -42,7 +42,7 @@
 
 @media all and (max-width: 800px) {
 	.workout {
-		width: 200px;
+		width: 80%;
 		height: 150px;
 	}
 
@@ -58,10 +58,11 @@
 
 @media all and (max-width: 600px) {
 	.workouts {
-		-webkit-flex-flow: column wrap;
 		flex-flow: column wrap;
 		padding: 0;
 		justify-content: center;
 
+
 	}
+
 }

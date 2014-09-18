@@ -4,19 +4,33 @@ var React = require('react');
 var Navbar = require('../navbar/Navbar.jsx');
 var Workouts = require('../workouts/Workouts.jsx');
 
+var navbarContent = [
+    {name: "Home", link: "/"},
+    {name: "Summaries", link: "/summaries"},
+    {name: "About", link: "/about"}
+];
+
 module.exports = React.createClass({
     displayName: "App",
 
     getInitialState: function getInitialState() {
-        return {};
+        return {
+            filterText: ''
+        };
     },
-    /** Renders in React's virtual DOM. */
+
+    handleFilter: function(filter) {
+        this.setState({
+            filterText: filter
+        });
+    },
+
     render: function render() {
         
         return (
             <div className="app">
-                < Navbar />
-                < Workouts />
+                <Navbar content={navbarContent} filterText={this.state.filterText} onFilterChange={this.handleFilter}/>
+                <Workouts filterText={this.state.filterText}/>
             </div>
         );
     }

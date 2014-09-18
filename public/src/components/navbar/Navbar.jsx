@@ -1,13 +1,45 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var addons = require('react-addons');
+var _ = require('underscore');
+
+var SearchBar = React.createClass({
+    displayName: "SearchBar",
+
+    handleChange: function() {
+        var value = this.refs.filterTextInput.getDOMNode().value;
+        this.props.onFilterChange(value);
+    },
+
+    render: function() {
+        return (
+            <form className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={this.props.filterText}
+                    ref="filterTextInput"
+                    onChange={this.handleChange}
+                />
+            </form>
+        );
+    }
+});
 
 var NavbarLink = React.createClass({
     displayName: "NavbarLink",
+
+    handleClick: function() {
+        //Todo handle click
+    },
     
     render: function render() {
+        var classes = addons.classSet({
+            selected: this.props.selected
+        });
         return (
-           <a href={this.props.link}> {this.props.name} </a>
+            <a href={this.props.link} className={classes} onClick={this.handleClick}> {this.props.key} </a>
         );
     }
 });
@@ -15,17 +47,15 @@ var NavbarLink = React.createClass({
 var Navbar = React.createClass({
     displayName: "Navbar",
 
-    getInitialState: function getInitialState() {
-        return {};
-    },
-    /** Renders in React's virtual DOM. */
     render: function render() {
-        
+        var content = _.map(this.props.content, function(line) {
+            return <NavbarLink link={line.link} key={line.name} />
+        });
+
         return (
             <ul className="navbar"> 
-                <NavbarLink link="/" name="Home" />
-                <NavbarLink link="/" name="Summaries" />
-                <NavbarLink link="/" name="About" />
+                {content}
+                <SearchBar onFilterChange={this.props.onFilterChange}/>
             </ul>
         );
     }

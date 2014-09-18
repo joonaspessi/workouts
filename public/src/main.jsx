@@ -7,13 +7,13 @@ var Navbar = require('./components/navbar/Navbar.jsx');
 var Workouts = require('./components/workouts/workouts.jsx');
 var App = require('./components/app/App.jsx');
 
-
-
-page('/', function index() {
-    React.renderComponent(
+var app = React.renderComponent(
         <App />,
         document.body
-    );
+	);
+
+page('/', function index() {
+    
 });
 
 page('/summaries', function example() {

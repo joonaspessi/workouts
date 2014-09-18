@@ -16,10 +16,19 @@ $navbar-color: deepskyblue;
 	display: block;
 	padding: 1.2em;
 	color: white;
+	&.selected {
+		background: darken($navbar-color, 2%);
+	}
 }
 
 .navbar a:hover {
 	background: darken($navbar-color, 2%);
+}
+
+.navbar .search-bar {
+	align-self: center;
+	height: 1.2em;
+
 }
 
 @media all and (max-width: 800px) {
