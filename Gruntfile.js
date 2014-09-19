@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         },
         watch: {
             'browserify': {
-                files: 'public/src/**/*.jsx',
+                files: 'public/src/**/*.js*',
                 tasks: ['browserify']
             },
             'sass': {

@@ -39,7 +39,9 @@ var NavbarLink = React.createClass({
             selected: this.props.selected
         });
         return (
-            <a href={this.props.link} className={classes} onClick={this.handleClick}> {this.props.key} </a>
+            <a href={this.props.link} className={classes} onClick={this.handleClick}> 
+                {this.props.key} 
+            </a>
         );
     }
 });

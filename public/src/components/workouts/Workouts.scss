@@ -1,3 +1,5 @@
+$workouts-color: #E9EAED;
+$workout-text-color: #9197A3;
 .workouts {
 	padding: 0;
 	margin: 0;
@@ -8,21 +10,21 @@
 }
 
 .workout {
-	background: tomato;
+	background: white;
 	margin: 5px;
 	padding: 5px;
 	width: 400px;
 	height: 300px;
 	margin-top: 10px;
 	cursor: pointer;
-	border: 5px solid rgba(255,255,255,0.5);
-	border-radius: 10px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 2px;
 	flex-grow: 1;
 }
 
 .workout h1 {
 	//line-height: 150px;
-	color: white;
+	color: $workout-text-color;
 	font-weight: bold;
 	font-size: 3em;
 	text-align: center;	
@@ -30,14 +32,14 @@
 
 .workout .summary li {
 	margin: 1em;
-	color: white;
+	color: $workout-text-color;
 	font-size: 2em;
 	font-weight: bold;
 	text-align: center;
 }
 
 .workout:hover {
-	background: darken(tomato, 5%);
+	background: darken($workouts-color, 5%);
 }
 
 @media all and (max-width: 800px) {
@@ -61,8 +63,23 @@
 		flex-flow: column wrap;
 		padding: 0;
 		justify-content: center;
-
-
 	}
+}
 
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
 }

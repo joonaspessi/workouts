@@ -13,15 +13,24 @@ var app = React.renderComponent(
 	);
 
 page('/', function index() {
-    
+	app.setState({page: "workouts"});  
 });
 
-page('/summaries', function example() {
-    React.renderComponent(
-        <Navbar />,
-        document.body
-    );
+page('/summaries', function summaries() {
+    app.setState({page: "summaries"});
 });
+
+page('/workout/:id', function workout(options) {
+	if (options.param.id) {
+		app.setState({page: "workout", id: options.param.id});
+	} else {
+		app.setState({page: "workouts"});
+	}
+});
+
+page('*', function() {
+	console.log('not found');
+})
 
 page(); // Start router and serve the URL the user has in their address bar.
 
