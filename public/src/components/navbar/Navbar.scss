@@ -26,9 +26,20 @@ $navbar-color: deepskyblue;
 }
 
 .navbar .search-bar {
+	
 	align-self: center;
-	height: 1.2em;
+	float: right;
+}
 
+.navbar .search {
+	padding: 6px 6px 6px 6px;
+	border-radius: 5px;
+	margin: 3px;
+	color: #bcbcbc;
+	border: 1px solid #d0d0d0;
+	&:focus {
+		outline-width: 0;
+	}
 }
 
 @media all and (max-width: 800px) {
@@ -57,3 +68,5 @@ $navbar-color: deepskyblue;
 	}
 
 }
+
+

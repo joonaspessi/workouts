@@ -16,6 +16,7 @@ var SearchBar = React.createClass({
         return (
             <form className="search-bar">
                 <input
+                    className="search"
                     type="text"
                     placeholder="Search..."
                     value={this.props.filterText}

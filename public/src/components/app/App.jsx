@@ -54,8 +54,8 @@ module.exports = React.createClass({
             <div className="app">
                 <Navbar content={navbarContent} 
                         filterText={this.state.filterText} 
-                        onFilterChange={this.handleFilter}
-                />
+                        onFilterChange={this.handleFilter}/>
+                        
                 <Workouts filterText={this.state.filterText} 
                           collection={this.state.workouts}/>
             </div>
