@@ -22,12 +22,14 @@ $workout-text-color: #9197A3;
 	flex-grow: 1;
 }
 
-.workout h1 {
-	//line-height: 150px;
+.workout a {
+	display: block;
+	text-decoration: none;
 	color: $workout-text-color;
 	font-weight: bold;
 	font-size: 3em;
 	text-align: center;	
+	padding: auto;
 }
 
 .workout .summary li {
@@ -44,11 +46,10 @@ $workout-text-color: #9197A3;
 
 @media all and (max-width: 800px) {
 	.workout {
-		width: 80%;
 		height: 150px;
 	}
 
-	.workout h1 {
+	.workout a {
 		font-size: 2em;
 	}
 

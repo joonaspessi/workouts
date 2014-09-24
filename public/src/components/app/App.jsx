@@ -2,10 +2,14 @@
 
 var React = require('react');
 var Navbar = require('../navbar/Navbar.jsx');
+
+// Views
 var Workouts = require('../workouts/Workouts.jsx');
+var WorkoutInfo = require('../workoutInfo/workoutInfo.jsx');
 
 // Models
 var WorkoutCollection = require('../workouts/WorkoutCollection.js');
+
 var navbarContent = [
     {name: "Home", link: "/"},
     {name: "Summaries", link: "/summaries"},
@@ -15,20 +19,18 @@ var navbarContent = [
 module.exports = React.createClass({
     displayName: "App",
 
-
     getInitialState: function getInitialState() {
-        var collection = new WorkoutCollection();
+        this.collection = new WorkoutCollection();
         var self = this;
         var options = {
             success: function() {
-                console.log('success', collection.toArray());
-                self.setState({workouts: collection});
+                self.setState({workouts: self.collection});
             },
             error: function() {
                 console.error('error: cannot fetch workouts');
             }
         }
-        collection.fetch(options);
+        this.collection.fetch(options);
 
         return {
             page: "workouts",
@@ -55,22 +57,18 @@ module.exports = React.createClass({
                 <Navbar content={navbarContent} 
                         filterText={this.state.filterText} 
                         onFilterChange={this.handleFilter}/>
-                        
-                <Workouts filterText={this.state.filterText} 
-                          collection={this.state.workouts}/>
+                {content}
             </div>
         );
     },
 
     getContent: function getContent() {
         if (this.state.page === "workouts") {
-            return <Workouts filterText={this.state.filterText}/>;
+            return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
         } else if (this.state.page === "summaries") {
-            return <Workouts filterText={this.state.filterText}/>;
+            return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
         } else if (this.state.page === "workout") {
-            if (this.state.null) {
-                return <Workouts filterText={this.state.filterText}/>
-            }
+            return <WorkoutInfo />
         }
     }
 });

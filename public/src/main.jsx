@@ -21,8 +21,8 @@ page('/summaries', function summaries() {
 });
 
 page('/workout/:id', function workout(options) {
-	if (options.param.id) {
-		app.setState({page: "workout", id: options.param.id});
+	if (options.params.id) {
+		app.setState({page: "workout", id: options.params.id});
 	} else {
 		app.setState({page: "workouts"});
 	}

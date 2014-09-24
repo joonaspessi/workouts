@@ -13,20 +13,19 @@ var workoutDummyList = [
 var Workout = React.createClass({
     displayName: "Workout",
 
-    handleClick: function() {
-        //TODO do something
-    },
-    
     render: function render() {
+        var url = "workout/" + this.props.model.get('id');
         return (
-           <li className="workout" onClick={this.handleClick}>
-               <h1>{this.props.model.get('name')}</h1>
-               <ul className="summary">
-                <li>{this.props.model.get('day')}</li> 
-                <li>{this.props.model.get('distance')} km </li>   
-                <li>{this.props.model.get('avgHr')} bpm </li>   
-               </ul>
-           </li>
+            <li className="workout">
+                <a href={url}>
+                    {this.props.model.get('name')}
+                </a>
+                <ul className="summary">
+                    <li>{this.props.model.get('day')}</li> 
+                    <li>{this.props.model.get('distance')} km </li>   
+                    <li>{this.props.model.get('avgHr')} bpm </li>   
+                </ul>
+            </li>
         );
     }
 });

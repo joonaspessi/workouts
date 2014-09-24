@@ -8,7 +8,9 @@ var WorkoutModel = Backbone.Model.extend({
 		name: '',
 		avgHr: 0,
 		distance: 0
-	}
+	},
+
+	urlRoot: '/workout' 
 });
 
 module.exports = WorkoutModel;
