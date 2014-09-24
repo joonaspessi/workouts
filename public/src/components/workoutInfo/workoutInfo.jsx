@@ -10,21 +10,24 @@ var Navbar = React.createClass({
     displayName: "WorkoutInfo",
 
     getInitialState: function() {
-    	var workoutModel = new WorkoutModel();
-    	workoutModel.fetch();
     	return {
-    		modelReady: false
-    	}
+    	};
+    },
+
+    onClick: function() {
+        window.history.back()
     },
 
     render: function render() {
-
-    	if (!this.state.modelReady) {
-    		return <div> Loading </div>;
-    	}
         return (
-            <div className="workout-info">
-                hello
+            <div className="workout-info-container">
+                <button className="back-button" onClick={this.onClick}>Go Back</button>
+                <div className="workout-info">
+                    <h1>{this.props.model.get('name')}</h1>
+                    <div className="day">{this.props.model.get('day')}</div>
+                    <div className="distance">{this.props.model.get('distance')}</div>
+                    <div className="avgHr">{this.props.model.get('avgHr')}</div>
+                </div>
             </div>
         );
     }

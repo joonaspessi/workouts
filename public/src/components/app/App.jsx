@@ -67,8 +67,12 @@ module.exports = React.createClass({
             return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
         } else if (this.state.page === "summaries") {
             return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
-        } else if (this.state.page === "workout") {
-            return <WorkoutInfo />
+        } else if (this.state.page === "workout") {        
+            var model = this.collection.get(this.state.id);
+            if (!model) {
+                return <div className="loading spinner">Loading spinner</div>;
+            }    
+            return <WorkoutInfo model={this.collection.get(this.state.id)}/>
         }
     }
 });
