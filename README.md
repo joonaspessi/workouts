@@ -1,7 +1,6 @@
 # Welcome to Workout-hub!
 
 Workout-hub is personal workout blog with garmin connect data integration. 
-
 Main ideas:
 
 * Automatically fetch workouts from Garmin connect developer api. Shows travel, avg. speed, avg. heart rate and comments. No manual work.
