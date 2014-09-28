@@ -1,6 +1,8 @@
+@import "sass/font-awesome";
 @import "reset";
 @import "general";
 
 // React component styles.
+@import "components/app/App";
 @import "components/navbar/Navbar";
 @import "components/workouts/Workouts";

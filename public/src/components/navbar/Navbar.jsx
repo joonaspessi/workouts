@@ -15,6 +15,7 @@ var SearchBar = React.createClass({
     render: function() {
         return (
             <form className="search-bar">
+                <i className="fa fa-search"></i>
                 <input
                     className="search"
                     type="text"
@@ -37,10 +38,15 @@ var NavbarLink = React.createClass({
     
     render: function render() {
         var classes = addons.classSet({
-            selected: this.props.selected
+            selected: this.props.selected,
+            "nav-item": true
         });
+        console.log("selected: ", this.props.selected);
+
+        var icon = "fa " + this.props.icon;
         return (
             <a href={this.props.link} className={classes} onClick={this.handleClick}> 
+                <i className={icon}></i>
                 {this.props.key} 
             </a>
         );
@@ -52,7 +58,7 @@ var Navbar = React.createClass({
 
     render: function render() {
         var content = _.map(this.props.content, function(line) {
-            return <NavbarLink link={line.link} key={line.name} />
+            return <NavbarLink link={line.link} key={line.name} icon={line.icon} selected={false} />
         });
 
         return (

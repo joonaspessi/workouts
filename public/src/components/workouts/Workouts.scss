@@ -3,6 +3,7 @@ $workout-text-color: #9197A3;
 .workouts {
 	padding: 0;
 	margin: 0;
+	margin-top: 60px;
 	list-style: none;
 	display: flex;
 	-webkit-flex-flow: row wrap;
@@ -13,29 +14,31 @@ $workout-text-color: #9197A3;
 	background: white;
 	margin: 5px;
 	padding: 5px;
-	width: 400px;
-	height: 300px;
-	margin-top: 10px;
+	width: 100%;
+	height: 50px;
+	margin-top: 5px;
 	cursor: pointer;
 	border: 1px solid rgba(0,0,0,0.1);
 	border-radius: 2px;
 	flex-grow: 1;
 }
 
+
 .workout a {
 	display: block;
 	text-decoration: none;
 	color: $workout-text-color;
 	font-weight: bold;
-	font-size: 3em;
+	font-size: 2em;
 	text-align: center;	
 	padding: auto;
 }
 
 .workout .summary li {
+	display: inline;
 	margin: 1em;
 	color: $workout-text-color;
-	font-size: 2em;
+	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
 }
@@ -46,7 +49,7 @@ $workout-text-color: #9197A3;
 
 @media all and (max-width: 800px) {
 	.workout {
-		height: 150px;
+		height: 80px;
 	}
 
 	.workout a {
@@ -56,6 +59,10 @@ $workout-text-color: #9197A3;
 	.workout .summary li {
 		font-size: 1em;
 		margin: 0.5em;
+	}
+	.navbar {
+		width: 100%;
+		right: 0%;
 	}
 }
 

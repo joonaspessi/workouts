@@ -17,11 +17,9 @@ var Workout = React.createClass({
         var url = "workout/" + this.props.model.get('id');
         return (
             <li className="workout">
-                <a href={url}>
-                    {this.props.model.get('name')}
-                </a>
                 <ul className="summary">
-                    <li>{this.props.model.get('day')}</li> 
+                    <li className="day">{this.props.model.get('day')}</li>
+                    <li href={url}>{this.props.model.get('name')}</li> 
                     <li>{this.props.model.get('distance')} km </li>   
                     <li>{this.props.model.get('avgHr')} bpm </li>   
                 </ul>
@@ -38,7 +36,7 @@ var Navbar = React.createClass({
     },
     /** Renders in React's virtual DOM. */
     render: function render() {
-        var ReactCSSTransitionGroup = addons.CSSTransitionGroup;
+        var ReactCSSTransitionGroup = addons.CSSTransitionGroup();
         var workoutSet = this.props.collection;
         var self = this;
         if(workoutSet && this.props.filterText !== '') {
@@ -55,7 +53,7 @@ var Navbar = React.createClass({
 
         return (
             <ul className="workouts">
-                {workElems}
+                    {workElems}
             </ul>
         );
     }

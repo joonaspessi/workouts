@@ -1,0 +1,13 @@
+.app {
+	width: 80%;
+	left: 10%;
+	position: absolute;
+	overflow:hidden;
+}
+
+@media all and (max-width: 800px) {
+	.app {
+		width: 100%;
+		left: 0%;
+	}
+}

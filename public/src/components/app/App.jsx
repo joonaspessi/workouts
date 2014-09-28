@@ -11,9 +11,9 @@ var WorkoutInfo = require('../workoutInfo/workoutInfo.jsx');
 var WorkoutCollection = require('../workouts/WorkoutCollection.js');
 
 var navbarContent = [
-    {name: "Home", link: "/"},
-    {name: "Summaries", link: "/summaries"},
-    {name: "About", link: "/about"}
+    {name: "Home", link: "/", icon:"fa-home"},
+    {name: "Summaries", link: "/summaries", icon:"fa-signal"},
+    {name: "About", link: "/about", icon:"fa-question-circle"}
 ];
 
 module.exports = React.createClass({
