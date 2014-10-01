@@ -10,8 +10,6 @@ Main ideas:
 
 Main purpose of this project is to make my cycling workouts totally transparent to everyone. Hopefully this will initiate discussion about training methods which will benefit everyone. 
 
-Another goal is to promote my personal web engineering skills and broaden my CV. 
-
 # Technical stack
 
 Planned technical stack:
