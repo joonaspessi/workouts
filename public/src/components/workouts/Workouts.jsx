@@ -42,8 +42,10 @@ var Navbar = React.createClass({
         var workoutSet = this.props.collection;
         var self = this;
         if(workoutSet && this.props.filterText !== '') {
+            var filterText = self.props.filterText.toLowerCase();
             workoutSet = workoutSet.filter( function(workout) {
-                return workout.get('name').indexOf(self.props.filterText) !== -1;
+                var workoutName = workout.get('name').toLowerCase();
+                return workoutName.indexOf(filterText) !== -1;
             });
         }
 
