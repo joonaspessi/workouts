@@ -28,13 +28,12 @@ $workout-text-color: #9197A3;
 	display: block;
 	text-decoration: none;
 	color: $workout-text-color;
-	font-weight: bold;
-	font-size: 2em;
-	text-align: center;	
-	padding: auto;
+	padding: 0;
+	width: 100%;
+	height: 100%;
 }
 
-.workout .summary li {
+.workout a .summary li {
 	display: inline;
 	margin: 1em;
 	color: $workout-text-color;
@@ -56,7 +55,7 @@ $workout-text-color: #9197A3;
 		font-size: 2em;
 	}
 
-	.workout .summary li {
+	.workout a .summary li {
 		font-size: 1em;
 		margin: 0.5em;
 	}

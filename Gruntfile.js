@@ -32,5 +32,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-libsass');
     grunt.loadNpmTasks('grunt-browserify');
 
-    grunt.registerTask('default', ['react', 'libsass']);
+    grunt.registerTask('build', ['browserify', 'libsass']);
+    grunt.registerTask('default', ['build']);
 };

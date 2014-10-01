@@ -17,12 +17,14 @@ var Workout = React.createClass({
         var url = "workout/" + this.props.model.get('id');
         return (
             <li className="workout">
+                <a href={url}>
                 <ul className="summary">
                     <li className="day">{this.props.model.get('day')}</li>
-                    <li href={url}>{this.props.model.get('name')}</li> 
-                    <li>{this.props.model.get('distance')} km </li>   
-                    <li>{this.props.model.get('avgHr')} bpm </li>   
+                    <li>{this.props.model.get('name')}</li> 
+                    <li>{this.props.model.get('distance')} km</li>   
+                    <li>{this.props.model.get('avgHr')} bpm</li>   
                 </ul>
+                </a>
             </li>
         );
     }
