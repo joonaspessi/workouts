@@ -47,10 +47,6 @@ module.exports = React.createClass({
     },
 
     render: function render() {
-        var options = {
-            success: function() {console.log('success')},
-            error: function() {console.log('error')}
-        }
         var content = this.getContent();
         return (
             <div className="app">

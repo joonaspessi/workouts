@@ -41,8 +41,6 @@ var NavbarLink = React.createClass({
             selected: this.props.selected,
             "nav-item": true
         });
-        console.log("selected: ", this.props.selected);
-
         var icon = "fa " + this.props.icon;
         return (
             <a href={this.props.link} className={classes} onClick={this.handleClick}> 
