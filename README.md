@@ -11,20 +11,15 @@ Main ideas:
 Main purpose of this project is to make my cycling workouts totally transparent to everyone. Hopefully this will initiate discussion about training methods which will benefit everyone. 
 
 # Technical stack
-
 Planned technical stack:
-
 * Front-end:
 	* React
 	* Backbone
 	* Responsive design. Mobile first ideology.
-
 * Back-end
 	* Node/Express
 	* Postresql
 
 ## License
-
 The MIT License (MIT)
-
 Copyright (c) 2014 Joonas Pessi (@joonaspessi)
