@@ -1,15 +1,26 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
-var workoutDummyList = [
-    {id: 1, name: "Test data one", day: "15.9.2014", distance: "41", avgHr: "141"},
-    {id: 2, name: "Test data two", day: "15.10.2014", distance: "61", avgHr: "122"},
-    {id: 3, name: "Test data three", day: "15.10.2014", distance: "62", avgHr: "123"},
-    {id: 4, name: "Test data four", day: "15.11.2014", distance: "633", avgHr: "123"}
-];
 
-for(i = 5; i < 50; ++i) {
-	var workout = {id: i, name: "Test data " + i, day: "15.9.2014", distance: i, avgHr: i*3 };
+function getDaysInMonth(month, year, day) {
+         // Since no month has fewer than 28 days
+         var date = new Date(year, month, day);
+         var days = [];
+         console.log('month', month, 'date.getMonth()', date.getMonth())
+         while (date.getMonth() === month) {
+            days.push(moment(new Date(date)));
+            date.setDate(date.getDate() + 1);
+         }
+         return days;
+}
+
+var workoutDummyList = [];
+var days = getDaysInMonth(moment().month(), moment().year(), moment().day());
+
+for(i = 0; i < days.length; ++i) {
+	var workout = {id: i, name: "Test data " + i, day: days[i].format('DD-MM-YYYY'), distance: i, avgHr: i*3 };
+	console.log(workout);
 	workoutDummyList.push(workout);
 }
 
