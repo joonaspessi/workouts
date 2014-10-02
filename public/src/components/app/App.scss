@@ -4,6 +4,11 @@
 	margin-top: 60px;
 	position: absolute;
 	overflow:hidden;
+
+	.loading-splash {
+		text-align: center;
+		color: #9197A3;	
+	}
 }
 
 @media all and (max-width: 800px) {

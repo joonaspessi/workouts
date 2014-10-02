@@ -21,7 +21,10 @@ var Navbar = React.createClass({
     render: function render() {
         return (
             <div className="workout-info-container">
-                <button className="back-button" onClick={this.onClick}>Go Back</button>
+                <div className="back-button" onClick={this.onClick}>
+                    <i className="fa fa-arrow-circle-left fa-2x"></i>
+                    <span>Go Back</span>
+                </div>
                 <div className="workout-info">
                     <h1>{this.props.model.get('name')}</h1>
                     <div className="day">{this.props.model.get('day')}</div>

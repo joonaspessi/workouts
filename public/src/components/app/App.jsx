@@ -59,15 +59,16 @@ module.exports = React.createClass({
     },
 
     getContent: function getContent() {
-        if (this.state.page === "workouts") {
+        if (!this.state.workouts) {
+            // TODO implement as own generic loading component
+            return <div className="loading-splash"><i className="fa fa-spinner fa-spin fa-5x"></i></div>;
+        }
+        else if (this.state.page === "workouts") {
             return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
         } else if (this.state.page === "summaries") {
             return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
         } else if (this.state.page === "workout") {        
-            var model = this.collection.get(this.state.id);
-            if (!model) {
-                return <div className="loading spinner">Loading spinner</div>;
-            }    
+            var model = this.collection.get(this.state.id);  
             return <WorkoutInfo model={this.collection.get(this.state.id)}/>
         }
     }

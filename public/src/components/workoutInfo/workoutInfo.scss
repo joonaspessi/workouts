@@ -7,8 +7,15 @@ $workout-info-text-color: #9197A3;
 	-webkit-flex-flow: row wrap;
 	color: $workout-info-text-color;
 
-	button {
+	.back-button {
 		margin: 5px;
+		cursor: pointer;
+		&:hover {
+			color: darken($workout-info-text-color, 15%);;
+		}
+		i {
+			margin-right: 10px;
+		}
 	}
 	.workout-info {
 		background: white;

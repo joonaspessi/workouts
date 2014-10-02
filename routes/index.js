@@ -14,6 +14,8 @@ for(i = 5; i < 50; ++i) {
 }
 
 router.get('/workout', function(req, res) {
+	// Simulate delay
+	//setTimeout(function(){res.json(workoutDummyList);}, 1000);
 	res.json(workoutDummyList);
 });
 // Serve index.ejs from all routes to allow proper single-page app behaviour.
