@@ -3,22 +3,21 @@ var router = express.Router();
 var moment = require('moment');
 
 
-function getDaysInMonth(month, year, day) {
-         // Since no month has fewer than 28 days
-         var date = new Date(year, month, day);
+function getLastDays(dayCount) {
+         var date = new Date();
          var days = [];
-         while (date.getMonth() === month) {
-            days.push(moment(new Date(date)));
-            date.setDate(date.getDate() + 1);
+         for(var i = 0; i < dayCount; ++i) {
+         	days.push(moment(date));
+         	date.setDate(date.getDate() - 1);
          }
          return days;
 }
 
 var workoutDummyList = [];
-var days = getDaysInMonth(moment().month(), moment().year(), moment().day());
+var days = getLastDays(30);
 
 for(i = 0; i < days.length; ++i) {
-	var workout = {id: i, name: "Test data " + i, day: days[i].format('DD-MM-YYYY'), distance: i, avgHr: i*3 };
+	var workout = {id: i, name: "Test data " + i, day: days[i].toJSON(), distance: i, avgHr: i*3 };
 	workoutDummyList.push(workout);
 }
 

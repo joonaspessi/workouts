@@ -3,6 +3,7 @@
 var React = require('react');
 var addons = require('react-addons');
 var _ = require('underscore');
+var moment = require('moment');
 
 var workoutDummyList = [
     {name: "Test data one", day: "15.9.2014", distance: "41", avgHr: "141"},
@@ -19,7 +20,7 @@ var Workout = React.createClass({
             <li className="workout">
                 <a href={url}>
                 <ul className="summary">
-                    <li className="day">{this.props.model.get('day')}</li>
+                    <li className="day">{moment(this.props.model.get('day')).format('DD-MM-YYYY')}</li>
                     <li>{this.props.model.get('name')}</li> 
                     <li>{this.props.model.get('distance')} km</li>   
                     <li>{this.props.model.get('avgHr')} bpm</li>   
@@ -40,6 +41,7 @@ var Navbar = React.createClass({
     render: function render() {
         var ReactCSSTransitionGroup = addons.CSSTransitionGroup();
         var workoutSet = this.props.collection;
+
         var self = this;
         if(workoutSet && this.props.filterText !== '') {
             var filterText = self.props.filterText.toLowerCase();
@@ -51,6 +53,7 @@ var Navbar = React.createClass({
 
         if (workoutSet) {
             var workElems = workoutSet.map( function(workout) {
+                    //Todo create month and week summary separators
                     return <Workout key={workout.get('id')} model={workout}/>
                 });
         }
