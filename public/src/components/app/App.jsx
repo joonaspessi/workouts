@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var $ = require('jquery');
 var Navbar = require('../navbar/Navbar.jsx');
 
 // Views
@@ -28,7 +29,9 @@ module.exports = React.createClass({
             },
             error: function() {
                 console.error('error: cannot fetch workouts');
-            }
+            },
+
+            data: $.param({ days: 30})
         }
         this.collection.fetch(options);
 

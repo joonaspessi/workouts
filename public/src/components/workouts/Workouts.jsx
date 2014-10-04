@@ -22,8 +22,8 @@ var Workout = React.createClass({
                 <ul className="summary">
                     <li className="day">{moment(this.props.model.get('day')).format('DD-MM-YYYY')}</li>
                     <li>{this.props.model.get('name')}</li> 
-                    <li>{this.props.model.get('distance')} km</li>   
-                    <li>{this.props.model.get('avgHr')} bpm</li>   
+                    <li>{this.props.model.get('distance')} km</li>
+                    <li>{this.props.model.get('avgHr')} bpm</li>  
                 </ul>
                 </a>
             </li>

@@ -14,7 +14,7 @@ module.exports = function(grunt) {
             },
             'sass': {
                 files: 'public/src/**/*.scss',
-                tasks: ['libsass']
+                tasks: ['libsass','autoprefixer']
             }
         },
         browserify: {
@@ -25,13 +25,20 @@ module.exports = function(grunt) {
                 src: ['public/src/**/*.jsx'],
                 dest: 'public/build/main.js'
             }
+        },
+        autoprefixer: {
+            prefix: {
+                src: 'public/build/main.css',
+                dest: 'public/build/main.css'
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-libsass');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
-    grunt.registerTask('build', ['browserify', 'libsass']);
+    grunt.registerTask('build', ['browserify', 'libsass', 'autoprefixer']);
     grunt.registerTask('default', ['build']);
 };
