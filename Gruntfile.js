@@ -34,6 +34,14 @@ module.exports = function(grunt) {
                 src: 'public/build/main.css',
                 dest: 'public/build/main.css'
             }
+        },
+        nodemon: {
+            dev: {
+                script: 'app.js',
+                options: {
+                    watch: ['routes']
+                }
+            }
         }
     });
 
@@ -41,6 +49,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-libsass');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-nodemon');
 
     grunt.registerTask('build', ['browserify', 'libsass', 'autoprefixer']);
     grunt.registerTask('default', ['build']);
