@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
+var httpProxy = require('http-proxy');
+var url = require('url');
+var https = require('https');
+var queryString = require('querystring');
 
+var stravaAccessToken = process.env["ACCESS_TOKEN"];
 
 function getLastDays(dayCount) {
          var date = new Date();
@@ -13,17 +18,31 @@ function getLastDays(dayCount) {
          return workouts;
 }
 
-router.get('/workout', function(req, res) {
-	// Simulate delay
-	var dayCount = 30; // Default
-	if (req.query.days) {
-		dayCount = req.query.days;
-	}
-
-	var workouts = getLastDays(dayCount);
-	//setTimeout(function(){res.json(workoutDummyList);}, 1000);
-	res.json(workouts);
+var stravaProxy = httpProxy.createProxyServer({
+	target: 'https://www.strava.com/api/v3',
+	agent: https.globalAgent,
+	headers: {
+    	host: 'strava.com'
+  	}
 });
+
+router.get('/activities', function(req, res) {
+	var query = null;
+	if (req.url.indexOf('?') === -1) {
+		query = '?';
+	} else {
+		query = '&';
+	}
+	var params = {"access_token": stravaAccessToken};
+	req.url = [
+		req.url,
+		query,
+		queryString.stringify(params)
+	].join('');
+
+	stravaProxy.web(req, res);
+});
+
 // Serve index.ejs from all routes to allow proper single-page app behaviour.
 router.get('*', function(req, res) {
     res.render('index', { title: 'Welcome to My workouts' });
