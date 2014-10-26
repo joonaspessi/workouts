@@ -20,6 +20,9 @@ module.exports = function(grunt) {
         browserify: {
             options: {
                 transform: [require('grunt-react').browserify],
+                browserifyOptions: {
+                    debug: true
+                }
             },
             client: {
                 src: ['public/src/**/*.jsx'],
@@ -31,6 +34,17 @@ module.exports = function(grunt) {
                 src: 'public/build/main.css',
                 dest: 'public/build/main.css'
             }
+        },
+        nodemon: {
+            dev: {
+                script: 'bin/www',
+                options: {
+                    watch: ['routes', 'app.js', 'bin/www'],
+                    env: {
+                        ACCESS_TOKEN: grunt.option('access-token') || "000"
+                    }
+                }
+            }
         }
     });
 
@@ -38,6 +52,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-libsass');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-nodemon');
 
     grunt.registerTask('build', ['browserify', 'libsass', 'autoprefixer']);
     grunt.registerTask('default', ['build']);
