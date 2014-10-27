@@ -9,7 +9,7 @@ var WorkoutModel = require('../workouts/WorkoutModel.js');
 var WorkoutCollection = Backbone.Collection.extend({
 	model: WorkoutModel,
 
-	url: '/workout'
+	url: '/activities'
 });
 
 module.exports = WorkoutCollection;
