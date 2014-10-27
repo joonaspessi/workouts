@@ -31,7 +31,7 @@ module.exports = React.createClass({
                 console.error('error: cannot fetch workouts');
             },
 
-            data: $.param({ days: 30})
+            data: $.param({ "per_page": 30})
         }
         this.collection.fetch(options);
 
@@ -53,8 +53,8 @@ module.exports = React.createClass({
         var content = this.getContent();
         return (
             <div className="app">
-                <Navbar content={navbarContent} 
-                        filterText={this.state.filterText} 
+                <Navbar content={navbarContent}
+                        filterText={this.state.filterText}
                         onFilterChange={this.handleFilter}/>
                 {content}
             </div>
@@ -70,8 +70,8 @@ module.exports = React.createClass({
             return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
         } else if (this.state.page === "summaries") {
             return <Workouts filterText={this.state.filterText} collection={this.state.workouts}/>;
-        } else if (this.state.page === "workout") {        
-            var model = this.collection.get(this.state.id);  
+        } else if (this.state.page === "workout") {
+            var model = this.collection.get(this.state.id);
             return <WorkoutInfo model={this.collection.get(this.state.id)}/>
         }
     }

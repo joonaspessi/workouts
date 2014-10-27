@@ -6,11 +6,11 @@ Backbone.$ = $;
 var WorkoutModel = Backbone.Model.extend({
 	defaults: {
 		name: '',
-		avgHr: 0,
+		"average_heartrate": "-",
 		distance: 0
 	},
 
-	urlRoot: '/workout' 
+	urlRoot: '/activities'
 });
 
 module.exports = WorkoutModel;

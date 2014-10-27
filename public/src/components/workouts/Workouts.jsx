@@ -5,12 +5,6 @@ var addons = require('react-addons');
 var _ = require('underscore');
 var moment = require('moment');
 
-var workoutDummyList = [
-    {name: "Test data one", day: "15.9.2014", distance: "41", avgHr: "141"},
-    {name: "Test data two", day: "15.10.2014", distance: "61", avgHr: "122"},
-    {name: "Test data three", day: "15.10.2014", distance: "62", avgHr: "123"}
-];
-
 var Workout = React.createClass({
     displayName: "Workout",
 
@@ -20,10 +14,9 @@ var Workout = React.createClass({
             <li className="workout">
                 <a href={url}>
                 <ul className="summary">
-                    <li className="day">{moment(this.props.model.get('day')).format('DD-MM-YYYY')}</li>
-                    <li>{this.props.model.get('name')}</li> 
-                    <li>{this.props.model.get('distance')} km</li>
-                    <li>{this.props.model.get('avgHr')} bpm</li>  
+                    <li>{this.props.model.get('name')}</li>
+                    <li>{this.props.model.get('distance')/1000} km</li>
+                    <li>{this.props.model.get('average_heartrate')} bpm</li>
                 </ul>
                 </a>
             </li>

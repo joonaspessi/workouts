@@ -27,9 +27,8 @@ var Navbar = React.createClass({
                 </div>
                 <div className="workout-info">
                     <h1>{this.props.model.get('name')}</h1>
-                    <div className="day">{this.props.model.get('day')}</div>
                     <div className="distance">{this.props.model.get('distance')}</div>
-                    <div className="avgHr">{this.props.model.get('avgHr')}</div>
+                    <div className="avgHr">{this.props.model.get('average_heartrate')}</div>
                 </div>
             </div>
         );

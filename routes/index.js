@@ -5,6 +5,7 @@ var httpProxy = require('http-proxy');
 var url = require('url');
 var https = require('https');
 var queryString = require('querystring');
+var request = require('request');
 
 var stravaAccessToken = process.env["ACCESS_TOKEN"];
 
@@ -34,13 +35,14 @@ router.get('/activities', function(req, res) {
 		query = '&';
 	}
 	var params = {"access_token": stravaAccessToken};
-	req.url = [
+	var target = 'https://www.strava.com/api/v3';
+	var url = [
+		target,
 		req.url,
 		query,
 		queryString.stringify(params)
 	].join('');
-
-	stravaProxy.web(req, res);
+	req.pipe(request(url)).pipe(res);
 });
 
 // Serve index.ejs from all routes to allow proper single-page app behaviour.
